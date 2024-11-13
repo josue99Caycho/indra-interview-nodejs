@@ -1,7 +1,7 @@
 import AWS from 'aws-sdk';
 import { v4 } from 'uuid';
 
-export class DynamoDb {
+export default class DynamoDb {
 
     constructor() { }
 

@@ -13,14 +13,15 @@ export const createActor = async (event) => {
 
     try {
 
-        console.log('DATOS DE ENTRADA', event);
+        console.log('DATOS DE ENTRADA', event.body);
         const actorRepository = new ActorRepository();
         const createActor = new createActorUseCase(actorRepository);
-        const response = await createActor.execute(event);
+        const response = await createActor.execute(JSON.parse(event.body));
+        console.log('RESPUESTA', response);
 
         return {
             statusCode: 201,
-            body: response
+            body: JSON.stringify(response)
         };
         
     } catch (error) {

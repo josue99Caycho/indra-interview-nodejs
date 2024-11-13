@@ -1,5 +1,5 @@
 
-export class getAllActors {
+export default class getAllActors {
 
     constructor(actorRespository) {
         this.actorRespository = actorRespository;

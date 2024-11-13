@@ -1,6 +1,6 @@
 import DynamoDB from './config/dynamo.mjs';
 
-export class actorRespository {
+export default class actorRespository {
 
 
     async getAll() {
@@ -25,7 +25,7 @@ export class actorRespository {
 
         try {
 
-            return await DynamoDB.Create(actor);
+            return await new DynamoDB().Create(actor);
 
         } catch (error) {
             console.log('Error al guardar los datos', error);

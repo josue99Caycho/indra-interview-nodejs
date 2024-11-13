@@ -1,5 +1,5 @@
 
-export class Actor {
+export default class Actor {
 
     constructor({ name, gender, skinColor, homeWorld, height }) {
         this.nombre = name;
@@ -14,7 +14,7 @@ export class Actor {
      */
     validateGender() {
 
-        if (!(getGenres().includes(this.genero))) {
+        if (!(this.getGenres().includes(this.genero))) {
             throw new Error('Ingresar un género válido.');
         }
 
@@ -36,7 +36,7 @@ export class Actor {
             this.validateHeight();
             this.validateGender();
         } catch (error) {
-            console.error('Ocurrió un eror al crear el actor: ', error.message);
+            console.error('Ocurrió un error al crear el actor: ', error.message);
             throw error;
         }
 
