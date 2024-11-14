@@ -1,11 +1,11 @@
 
 export default class Actor {
 
-    constructor({ name, gender, skinColor, homeWorld, height }) {
+    constructor({ name, gender, skinColor, homeworld, height }) {
         this.nombre = name;
         this.genero = gender;
         this.color = skinColor;
-        this.mundo = homeWorld;
+        this.mundo = homeworld;
         this.altura = height;
     }
 
