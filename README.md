@@ -6,3 +6,5 @@
 2. Para Listar todos los actores persistidos lanzar la siguiente URL (GET): https://g2jcxkekr3.execute-api.us-east-1.amazonaws.com/dev/
 3. Para listar un actor en especifico lanzar la URL con el siguiente formato: https://g2jcxkekr3.execute-api.us-east-1.amazonaws.com/dev/actor/${id}
 4. Para correr las pruebas lanzar el siguiente comando en la terminal: npm test
+
+![alt text](image.png)
