@@ -21,4 +21,20 @@ export default class DynamoDb {
         return newItem;
     }
 
+    async GetAll() {
+
+        const dynamo = this.Connect();
+        const data = await dynamo.scan({ TableName: 'AutorTable' }).promise();
+        return data.Items;
+
+    }
+
+    async GetById(id) {
+
+        const dynamo = this.Connect();
+        const data = await dynamo.get({ TableName: 'AutorTable', Key: { id } }).promise();
+        return data.Item;
+
+    }
+
 }

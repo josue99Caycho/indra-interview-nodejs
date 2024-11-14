@@ -13,11 +13,9 @@ export const createActor = async (event) => {
 
     try {
 
-        console.log('DATOS DE ENTRADA', event.body);
         const actorRepository = new ActorRepository();
         const createActor = new createActorUseCase(actorRepository);
         const response = await createActor.execute(JSON.parse(event.body));
-        console.log('RESPUESTA', response);
 
         return {
             statusCode: 201,
@@ -44,11 +42,11 @@ export const getById = async (event) => {
 
         const actorRepository = new ActorRepository();
         const actor = new getActorById(actorRepository);
-        const response = await actor.execute(event.params.id);
+        const response = await actor.execute(event.pathParameters.id);
 
         return {
             statusCode: 201,
-            body: response
+            body: JSON.stringify(response)
         };
         
     } catch (error) {
@@ -75,7 +73,7 @@ export const getAll = async () => {
 
         return {
             statusCode: 201,
-            body: response
+            body: JSON.stringify(response)
         };
         
     } catch (error) {

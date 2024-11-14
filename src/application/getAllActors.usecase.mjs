@@ -6,7 +6,11 @@ export default class getAllActors {
     }
 
     async execute() {
-        return await this.actorRespository.getAll(id)
+        try {
+            return await this.actorRespository.getAll()
+        } catch (error) {
+            throw error;
+        }
     }
 
 }
