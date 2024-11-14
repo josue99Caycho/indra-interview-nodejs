@@ -14,8 +14,12 @@ export default class Actor {
      */
     validateGender() {
 
-        if (!(this.getGenres().includes(this.genero))) {
-            throw new Error('Ingresar un género válido.');
+        try {
+            if (!(this.getGenres().includes(this.genero))) {
+                throw new Error('Ingresar un género válido.');
+            }
+        } catch (error) {
+            throw error;
         }
 
     }
@@ -24,9 +28,14 @@ export default class Actor {
      * Validar si la altura es la mínima permitida
      */
     validateHeight() {
+        try {
 
-        if (this.altura < 175) {
-            throw new Error('El actor al menos debe de medir 175 cm.');
+            if (this.altura < 175) {
+                throw new Error('El actor al menos debe de medir 175 cm.');
+            }
+
+        } catch (error) {
+            throw error;
         }
     }
 

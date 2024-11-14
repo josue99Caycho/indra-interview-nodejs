@@ -12,7 +12,7 @@ export default class createActor {
             const newActor = new Actor(actor);
             newActor.validateActor();
 
-            return await this.actorRespository.save(actor);
+            return await this.actorRespository.save(newActor);
         } catch (error) {
             throw error;
         }

@@ -14,10 +14,11 @@ export default class DynamoDb {
         const dynamo = this.Connect();
         const id = v4();
         const createdAt = new Date();
-
         const newItem = { id, ...item, createdAt };
 
         await dynamo.put({ TableName: 'AutorTable', Item: newItem }).promise();
+
+        return newItem;
     }
 
 }
