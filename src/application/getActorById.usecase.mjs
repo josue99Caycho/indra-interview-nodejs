@@ -6,7 +6,12 @@ export default class getActorById {
     }
 
     async execute(id) {
-        return await this.actorRespository.getById(id)
+
+        const data = await this.actorRespository.getById(id)
+
+        if(!data) return { data: 'Not Found' }
+
+        return data;
     }
 
 }

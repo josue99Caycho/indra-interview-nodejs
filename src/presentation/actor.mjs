@@ -13,9 +13,10 @@ export const createActor = async (event) => {
 
     try {
 
+        const body = JSON.parse(event.body);
         const actorRepository = new ActorRepository();
         const createActor = new createActorUseCase(actorRepository);
-        const response = await createActor.execute(JSON.parse(event.body));
+        const response = await createActor.execute(body.actorId);
 
         return {
             statusCode: 201,
@@ -23,6 +24,7 @@ export const createActor = async (event) => {
         };
         
     } catch (error) {
+        console.log('Error al persistir', error)
         return {
             statusCode: 500,
             body: {
@@ -45,7 +47,7 @@ export const getById = async (event) => {
         const response = await actor.execute(event.pathParameters.id);
 
         return {
-            statusCode: 201,
+            statusCode: 200,
             body: JSON.stringify(response)
         };
         
@@ -72,7 +74,7 @@ export const getAll = async () => {
         const response = await actorList.execute();
 
         return {
-            statusCode: 201,
+            statusCode: 200,
             body: JSON.stringify(response)
         };
         
